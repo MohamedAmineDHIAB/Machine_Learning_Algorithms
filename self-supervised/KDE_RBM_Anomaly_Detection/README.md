@@ -22,6 +22,6 @@ The 100 training points are visualized below:
 
 The receptive field connecting the input image to a particular hidden unit of the RBM :
 
-<img src="https://raw.githubusercontent.com/MohamedAmineDHIAB/Machine_Learning_Algorithms/main/Unsupervised/KDE_RBM_Anomaly_Detection/data/rbm_learned_params.png" title="Weights of the RBM"/>
+<img src="https://raw.githubusercontent.com/MohamedAmineDHIAB/Machine_Learning_Algorithms/main/self-supervised/KDE_RBM_Anomaly_Detection/data/rbm_learned_params.png" title="Weights of the RBM"/>
 
 
