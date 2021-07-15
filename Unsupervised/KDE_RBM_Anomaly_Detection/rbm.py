@@ -52,7 +52,7 @@ class RBM(AnomalyModel):
         return E
 
 
-if __name__ == 'main':
+if __name__ == '__main__':
     Xr, Xi, Xo = utils.getdata()
     rbm = RBM(Xr, 100)
     rbm.fit(Xr, verbose=True)
