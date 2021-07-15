@@ -1,7 +1,7 @@
 import numpy as np
 from anomalymodel import AnomalyModel
 import utils
-
+import scipy
 
 class KDE(AnomalyModel):
 
@@ -16,11 +16,13 @@ class KDE(AnomalyModel):
         X_test = X
         X_train = X_train[:, None, :]
         X_test = X_test[None, :, :]
-
+        '''
         Y = np.linalg.norm(X_train-X_test, axis=2)**2
         epsilon = 1e-30
         E = -np.log(np.sum(np.exp(-self.gamma*Y), axis=0)+epsilon)
-
+        '''
+        D=scipy.spatial.distance.cdist(self.X,X,'sqeuclidean')
+        E=scipy.special.logsumexp(-D,axis=0)
         return np.array(E, dtype='float64')
 
 
