@@ -59,8 +59,8 @@ if __name__ == '__main__':
     plt.figure(figsize=(16, 4))
     plt.imshow(Xr.reshape(5, 20, 28, 28).transpose(
         0, 2, 1, 3).reshape(140, 560))
-    plt.show()
+    plt.savefig('./data/100_train_0.png')
     plt.figure(figsize=(16, 4))
     plt.imshow(rbm.W.T.reshape(5, 20, 28, 28).transpose(
         0, 2, 1, 3).reshape(140, 560))
-    plt.show()
+    plt.savefig('./data/rbm_learned_params.png')
