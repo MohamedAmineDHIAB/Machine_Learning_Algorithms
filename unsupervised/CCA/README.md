@@ -38,6 +38,11 @@ Using the method of Lagrange multipliers, this optimization problem can be reduc
 
 ## CCA Dual Data :
 
+Dual Formulation can be used in case of high dimensional input (d>N) where N is the number of samples and d is the dimension of one sample.
+We consider the scenario where sources emit spatially, and two (noisy) receivers measure the spatial field at different locations. We would like to identify signal that is common to the two measured locations, e.g. a given source emitting at a given frequency. 
+
+#### We first load the data and show the first example:
+
 ![image](https://user-images.githubusercontent.com/85687148/125966218-ca8ab34b-2cbb-41f7-a1bf-702326b15d71.png)
 
 
