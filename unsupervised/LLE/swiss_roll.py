@@ -1,5 +1,5 @@
 import numpy as np
-import matplotlib
+
 from matplotlib import pyplot as plt
 from mpl_toolkits.mplot3d.axes3d import Axes3D
 import sklearn
