@@ -28,7 +28,7 @@ if __name__ == '__main__':
                 Xtrain_std, Ytrain_std, width[j], noise[i])
             lltrain[i, j] = gp.loglikelihood(Xtrain_std, Ytrain_std)
             lltest[i, j] = gp.loglikelihood(Xtest_std, Ytest_std)
-    m = 50
+    m = 49
     M = max(lltrain.max(), lltest.max())
     f=plt.figure(figsize=(12,6))
 
