@@ -28,26 +28,21 @@ if __name__ == '__main__':
                 Xtrain_std, Ytrain_std, width[j], noise[i])
             lltrain[i, j] = gp.loglikelihood(Xtrain_std, Ytrain_std)
             lltest[i, j] = gp.loglikelihood(Xtest_std, Ytest_std)
-    m = 49
+    m = 50
     M = max(lltrain.max(), lltest.max())
-    f=plt.figure(figsize=(12,6))
+    f = plt.figure(figsize=(12, 6))
 
-    p=f.add_subplot(1,2,1)
+    p = f.add_subplot(1, 2, 1)
     p.set_title('log P(train | GP posterior)')
     p.set_xlabel('width')
     p.set_ylabel('noise')
-    CS=plt.contour(W, N, lltrain, levels=np.arange(m, M, 20))
-    p.clabel(CS,inline=1,fontsize=10)
+    CS = plt.contour(W, N, lltrain, levels=np.arange(m, M, 20))
+    p.clabel(CS, inline=1, fontsize=10)
 
-    p=f.add_subplot(1,2,2)
+    p = f.add_subplot(1, 2, 2)
     p.set_title('log P(test | GP posterior)')
     p.set_xlabel('width')
     p.set_ylabel('noise')
-    CS=plt.contour(W, N, lltest, levels=np.arange(m, M, 20))
-    p.clabel(CS,inline=1,fontsize=10)
+    CS = plt.contour(W, N, lltest, levels=np.arange(m, M, 20))
+    p.clabel(CS, inline=1, fontsize=10)
     plt.savefig('./figs/yacht_dataset.png')
-
-
-
-
-
