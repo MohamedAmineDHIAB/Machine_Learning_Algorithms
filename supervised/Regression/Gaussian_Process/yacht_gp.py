@@ -19,7 +19,7 @@ if __name__ == '__main__':
 
     width = np.linspace(0.05, 2.0, num=50)
     noise = np.linspace(0.005, 0.040, num=50)
-    W, N = np.meshgrid(width, noise)
+
     lltrain = np.zeros((noise.shape[0], width.shape[0]))
     lltest = np.zeros((noise.shape[0], width.shape[0]))
     for i in range(len(noise)):
@@ -36,13 +36,16 @@ if __name__ == '__main__':
     p.set_title('log P(train | GP posterior)')
     p.set_xlabel('width')
     p.set_ylabel('noise')
-    CS = plt.contour(W, N, lltrain, levels=np.arange(m, M, 20))
+    CS = plt.contour(width, noise, lltrain, levels=np.arange(m, M, 20))
     p.clabel(CS, inline=1, fontsize=10)
 
     p = f.add_subplot(1, 2, 2)
     p.set_title('log P(test | GP posterior)')
     p.set_xlabel('width')
     p.set_ylabel('noise')
-    CS = plt.contour(W, N, lltest, levels=np.arange(m, M, 20))
+    CS = plt.contour(width, noise, lltest, levels=np.arange(m, M, 20))
     p.clabel(CS, inline=1, fontsize=10)
+    '''
     plt.savefig('./figs/yacht_dataset.png')
+    '''
+    plt.show()
