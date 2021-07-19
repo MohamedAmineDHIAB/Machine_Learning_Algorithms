@@ -32,7 +32,7 @@ def yacht():
     Yacht Hydrodynamics Data Set
     """
 
-    D = numpy.loadtxt(open("yacht_hydrodynamics.csv","rb"),delimiter=",",skiprows=1)
+    D = numpy.loadtxt(open("./yacht_hydrodynamics.csv","rb"),delimiter=",",skiprows=1)
 
     X,Y = D[:,:-1],D[:,-1]
 
