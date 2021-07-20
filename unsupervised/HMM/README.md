@@ -19,7 +19,7 @@ B : contains the probabilities of emissiosn (column j is probability of row i em
 
 Pi : contains the prability of a state being the initial state
 
-=> We can see that the model learned from the random given sequence , a pattern which consists of emitting "1.0.0.0" many times + a noise , which corresponds to the emissions matrix B
+=> We can see that the model learned from the random given sequence , a pattern which consists of emitting "1.0.0.0" many times + a noise , which corresponds to the emissions matrix B, so after every 4 bits there is a probability==1 to find the bit `1` again
 
 
 
