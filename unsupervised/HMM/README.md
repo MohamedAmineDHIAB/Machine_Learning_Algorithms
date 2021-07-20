@@ -9,3 +9,6 @@ The names of variables used in the code and the references to equations are take
 ### HMM toy example :
 
 We first look at a toy example of an HMM trained on a binary sequence. The training procedure below consists of 100 iterations of the Baum-Welch procedure. It runs the HMM learning algorithm for some toy binary data and prints the parameters learned by the HMM (i.e. matrices `A` and `B`).
+
+![image](https://user-images.githubusercontent.com/85687148/126361341-1f4708b6-c2ae-4d55-825c-e71d6f4bb51e.png)
+
