@@ -6,7 +6,7 @@ The file `hmm.py` contains basic implementation of an HMM and of the Baum-Welch 
 The names of variables used in the code and the references to equations are taken from the HMM paper by Rabiner et al.
 
 
-### HMM toy example :
+## HMM toy example :
 
 We first look at a toy example of an HMM trained on a binary sequence. The training procedure below consists of 100 iterations of the Baum-Welch procedure. It runs the HMM learning algorithm for some toy binary data and prints the parameters learned by the HMM (i.e. matrices `A` and `B`).
 
@@ -15,11 +15,21 @@ We first look at a toy example of an HMM trained on a binary sequence. The train
 
 A : contains the probabilities of transitions from state i to state j , where i,j in [1,4]
 
-B : contains the probabilities of emissiosn (column j is probability of row i emmitting the value j)
+B : contains the probabilities of emission (column j is probability of row i emitting the value j)
 
 Pi : contains the prability of a state being the initial state
 
 => We can see that the model learned from the random given sequence , a pattern which consists of emitting "1.0.0.0" many times + a noise , which corresponds to the emissions matrix B, so after every 4 bits there is a probability==1 to find the bit `1` again
+
+#### Choosing the best number of hidden states N :
+
+for doing that we split the observations into train and test parts and then compute their respective logprobability , here we have the results : (we do many trials to observe the stability due to random initilization of the model)
+
+![image](https://user-images.githubusercontent.com/85687148/126398605-74ba49b4-6837-4ac3-9b29-a1aa654e7390.png)
+
+
+
+
 
 
 
