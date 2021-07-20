@@ -12,3 +12,14 @@ We first look at a toy example of an HMM trained on a binary sequence. The train
 
 ![image](https://user-images.githubusercontent.com/85687148/126361341-1f4708b6-c2ae-4d55-825c-e71d6f4bb51e.png)
 
+
+A : contains the probabilities of transitions from state i to state j , where i,j in [1,4]
+
+B : contains the probabilities of emissiosn (column j is probability of row i emmitting the value j)
+
+Pi : contains the prability of a state being the initial state
+
+=> We can see that the model learned from the random given sequence , a pattern which consists of emitting "1.0.0.0" many times + a noise , which corresponds to the emissions matrix B
+
+
+
