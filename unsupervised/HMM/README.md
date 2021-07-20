@@ -15,7 +15,7 @@ We first look at a toy example of an HMM trained on a binary sequence. The train
 
 A : contains the probabilities of transitions from state i to state j , where i,j in [1,4]
 
-B : contains the probabilities of emissiosn (column j is probability of row i emmitting the value j)
+B : contains the probabilities of emission (column j is probability of row i emitting the value j)
 
 Pi : contains the prability of a state being the initial state
 
