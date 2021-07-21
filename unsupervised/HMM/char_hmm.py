@@ -23,6 +23,7 @@ def sample(data, T=50):
     O = data[i].upper().replace('\n', ' ')
     O = numpy.array([ord(s) for s in O])
     O = numpy.maximum(O[(O >= 65)*(O < 90)+(O == 32)]-64, 0)
+
     j = numpy.random.randint(len(O)-T)
     return O[j:j+T]
 
@@ -68,11 +69,11 @@ class HMMChar(HMM):
 
 
 if __name__ == '__main__':
+    
+    def trainsample(): return sample(newsgroups_train.data, 100)
+    def testsample(): return sample(newsgroups_test.data, 100)
 
-    def trainsample(): return sample(newsgroups_train.data)
-    def testsample(): return sample(newsgroups_test.data)
-
-    hmmchar = HMMChar(200, 27)
+    hmmchar = HMMChar(500, 27)
     pobstest = []
     pobstrain = []
 
@@ -102,6 +103,6 @@ if __name__ == '__main__':
     print('-'*100)
     print('Testing the HMM model...')
     print('-'*100)
-    print("original:\n"+tochar(sample(newsgroups_test.data, T=250)))
-    print("\nlearned:\n"+tochar(hmmchar.generate(250)))
-    print("\nrandom:\n" + tochar(HMMChar(200, 27).generate(250))+'\n')
+    print("original:\n"+tochar(sample(newsgroups_test.data, T=100)))
+    print("\nlearned:\n"+tochar(hmmchar.generate(100)))
+    print("\nrandom:\n" + tochar(HMMChar(500, 27).generate(100))+'\n')
