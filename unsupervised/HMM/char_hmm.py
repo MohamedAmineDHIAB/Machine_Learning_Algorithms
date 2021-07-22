@@ -2,6 +2,7 @@ import numpy
 
 from hmm import HMM
 from sklearn.datasets import fetch_20newsgroups
+from tqdm import tqdm
 
 na = numpy.newaxis
 
@@ -69,18 +70,18 @@ class HMMChar(HMM):
 
 
 if __name__ == '__main__':
-    
+
     def trainsample(): return sample(newsgroups_train.data, 100)
     def testsample(): return sample(newsgroups_test.data, 100)
 
-    hmmchar = HMMChar(500, 27)
+    hmmchar = HMMChar(300, 27)
     pobstest = []
     pobstrain = []
 
     print('\nLaunching training of HMM model ...')
     print('-'*100)
 
-    for k in range(100000):
+    for k in range(3000):
 
         train_batch = trainsample()
         test_batch = testsample()
@@ -97,7 +98,7 @@ if __name__ == '__main__':
         hmmchar.forward()
         pobstest.append(hmmchar.pobs)
 
-        if k % 10000 == 0:
+        if k % 1000 == 0:
             print(
                 f'iteration={k} logptrain={numpy.mean(numpy.log(pobstrain)):.2f} logptest={numpy.mean(numpy.log(pobstest)):.2f}')
     print('-'*100)
@@ -105,4 +106,4 @@ if __name__ == '__main__':
     print('-'*100)
     print("original:\n"+tochar(sample(newsgroups_test.data, T=100)))
     print("\nlearned:\n"+tochar(hmmchar.generate(100)))
-    print("\nrandom:\n" + tochar(HMMChar(500, 27).generate(100))+'\n')
+    print("\nrandom:\n" + tochar(HMMChar(300, 27).generate(100))+'\n')
