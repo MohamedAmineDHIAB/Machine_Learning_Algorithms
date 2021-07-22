@@ -24,5 +24,35 @@ def get_data():
     Xt, Tt = testset.data.float().view(-1, 1, 28, 28)/127.5-1, testset.targets
     return(Xr, Tr, Xt, Tt)
 
-if __name__=='__main__':
-    Xr, Tr, Xt, Tt=get_data()
+
+def build_cnn():
+    torch.manual_seed(0)
+    cnn = utils.NNClassifier(nn.Sequential(
+        nn.Conv2d(1, 8, 5), nn.ReLU(), nn.MaxPool2d(2),
+        nn.Conv2d(8, 24, 5), nn.ReLU(), nn.MaxPool2d(2),
+        nn.Conv2d(24, 72, 4), nn.ReLU(),
+        nn.Conv2d(72, 10, 1)
+    ))
+    return(cnn)
+
+
+def build_linear_net():
+    torch.manual_seed(0)
+    lin = utils.NNClassifier(nn.Sequential(nn.Linear(784, 10)), flat=True)
+
+    return (lin)
+
+
+def build_fully_connected():
+    torch.manual_seed(0)
+    fc = utils.NNClassifier(nn.Sequential(
+        nn.Linear(784, 512), nn.ReLU(), nn.Linear(512, 10)
+    ), flat=True)
+    return(fc)
+
+
+if __name__ == '__main__':
+    Xr, Tr, Xt, Tt = get_data()
+    cnn = build_cnn()
+    lin = build_linear_net()
+    fc = build_fully_connected()
