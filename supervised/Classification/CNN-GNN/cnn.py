@@ -6,7 +6,7 @@ import torchvision.transforms as transforms
 import utils
 import numpy
 
-import matplotlib
+from matplotlib import pyplot as plt
 
 
 def get_data():
@@ -56,3 +56,21 @@ if __name__ == '__main__':
     cnn = build_cnn()
     lin = build_linear_net()
     fc = build_fully_connected()
+    for name, cl in [('linear', lin), ('full', fc), ('conv', cnn)]:
+        cl.fit(Xr, Tr, epochs=5)
+
+        errtr = numpy.mean(cl.predict(
+            Xr[:]).numpy().argmax(axis=1) == Tr[:].numpy())
+        errtt = numpy.mean(cl.predict(
+            Xt[:]).numpy().argmax(axis=1) == Tt[:].numpy())
+        print('-'*70)
+        print('%10s accuracy on train: %.3f  accuracy on test: %.3f' %
+              (name, errtr, errtt))
+    print('\n')
+
+    for digits in [highest, lowest]:
+        plt.figure(figsize=(8, 3))
+        plt.axis('off')
+        plt.imshow(digits.numpy().reshape(3, 8, 28, 28).transpose(
+            0, 2, 1, 3).reshape(28*3, 28*8), cmap='gray')
+        plt.show()
