@@ -5,7 +5,8 @@ import torchvision
 import torchvision.transforms as transforms
 import utils
 import numpy
-
+import scipy
+import scipy.special
 from matplotlib import pyplot as plt
 
 
@@ -67,10 +68,21 @@ if __name__ == '__main__':
         print('%10s accuracy on train: %.3f  accuracy on test: %.3f' %
               (name, errtr, errtt))
     print('\n')
+    Yt = cnn.predict(Xt).numpy()
+    Z = Yt-scipy.special.logsumexp(Yt, axis=1, keepdims=True)
+    ind = (Z.max(axis=1)).argsort()
+    lowest = Xt[ind[:24]]
+    highest = Xt[ind[-24:]]
 
-    for digits in [highest, lowest]:
+    for digits, i in zip([highest, lowest], [1, 2]):
         plt.figure(figsize=(8, 3))
         plt.axis('off')
         plt.imshow(digits.numpy().reshape(3, 8, 28, 28).transpose(
             0, 2, 1, 3).reshape(28*3, 28*8), cmap='gray')
-        plt.show()
+        if i == 1:
+
+            plt.savefig('./figs/highest_pred_logprob.png')
+
+        if i == 2:
+
+            plt.savefig('./figs/lowest_pred_logprob.png')
