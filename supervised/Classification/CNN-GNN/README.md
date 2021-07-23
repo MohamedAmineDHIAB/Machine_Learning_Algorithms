@@ -22,7 +22,7 @@ We observe that the convolutional neural network reaches the higest accuracy wit
 
 ```
 
-![image](https://user-images.githubusercontent.com/85687148/126723270-d7d450f2-e030-4df3-9710-68b22c3e95cf.png)
+
 
 These are the digits that were predicted with the highest probability by the cnn :
 
