@@ -13,3 +13,16 @@ We train each classifier for 5 epochs and print the classification accuracy on t
 We observe that the convolutional neural network reaches the higest accuracy with less than 2% of misclassified digits on the test data.
 
 ![image](https://user-images.githubusercontent.com/85687148/126723270-d7d450f2-e030-4df3-9710-68b22c3e95cf.png)
+
+These are the digits that were predicted with the highest probability by the cnn :
+
+![image](https://user-images.githubusercontent.com/85687148/126724962-dba4324b-49a7-4505-8e2e-cdb8c0ff71a7.png)
+
+These are the digits that were predicted with the lowest probability by the cnn :
+
+![image](https://user-images.githubusercontent.com/85687148/126724997-52f695bd-a489-40c6-85a9-bee35b770ba4.png)
+
+
+
+
+
