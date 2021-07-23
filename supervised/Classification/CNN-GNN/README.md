@@ -24,11 +24,11 @@ We observe that the convolutional neural network reaches the higest accuracy wit
 
 
 
-These are the digits that were predicted with the highest probability by the cnn :
+These are the digits that were predicted with the ***highest*** probability by the ***cnn*** :
 
 ![image](https://user-images.githubusercontent.com/85687148/126724962-dba4324b-49a7-4505-8e2e-cdb8c0ff71a7.png)
 
-These are the digits that were predicted with the lowest probability by the cnn :
+These are the digits that were predicted with the ***lowest*** probability by the ***cnn*** :
 
 ![image](https://user-images.githubusercontent.com/85687148/126724997-52f695bd-a489-40c6-85a9-bee35b770ba4.png)
 
