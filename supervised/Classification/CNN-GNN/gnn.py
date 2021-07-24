@@ -24,14 +24,8 @@ class GNN(torch.nn.Module):
         self.V = torch.nn.Parameter(torch.zeros([nbhid, nbclasses]))
 
     def forward(self, A):
-        # ------------------------------------
-        # TODO: Replace by your code
-        # ------------------------------------
-        import solution
-        Y = solution.forward(self, A)
-        # ------------------------------------
 
-        return Y
+        return (Y)
 
 
 if __name__ == '__main__':
