@@ -48,6 +48,8 @@ name:        GNN  train: 1.000  test: 0.962
 
 ```
 
+We observe that both networks are able to perfectly classify the training data, however, due to its particular structure, the graph neural network generalizes better to new data points.
+
 
 
 
