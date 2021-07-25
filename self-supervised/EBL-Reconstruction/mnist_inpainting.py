@@ -3,6 +3,7 @@ import torch.nn as nn
 import utils
 import numpy
 from matplotlib import pyplot as plt
+from sklearn.decomposition import PCA
 
 
 def removepatch(X):
@@ -15,8 +16,25 @@ def removepatch(X):
     return (X*(1-mask)).data, mask
 
 
+def pca(z, x, d):
+    pca = PCA(n_components=d)
+    pca.fit(x.numpy())
+    y = pca.transform(z.numpy())
+    y = pca.inverse_transform(y)
+    y = torch.from_numpy(y)
+    return y
+
+
 if __name__ == '__main__':
     Xr, Xt = utils.getdata()
     xmask = removepatch(Xt[:10])[0]
     utils.vis10(xmask)
+
+
+    Xn, m = removepatch(Xt[:10])
+
+    utils.vis10(pca(Xn, Xr, 10)*m+Xn*(1-m))
+    utils.vis10(pca(Xn, Xr, 60)*m+Xn*(1-m))
+    utils.vis10(pca(Xn, Xr, 360)*m+Xn*(1-m))
+
     plt.show()
