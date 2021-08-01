@@ -16,20 +16,15 @@ def removepatch(X):
     return (X*(1-mask)).data, mask
 
 
-def pca(z, x, d):
-    pca = PCA(n_components=d)
-    pca.fit(x.numpy())
-    y = pca.transform(z.numpy())
-    y = pca.inverse_transform(y)
-    y = torch.from_numpy(y)
-    return y
-
-
 if __name__ == '__main__':
     Xr, Xt = utils.getdata()
     xmask = removepatch(Xt[:10])[0]
-    utils.vis10(xmask)
-
+    torch.manual_seed(0)
+    enet = nn.Sequential(
+        nn.Linear(784, 256), nn.Hardtanh(),
+        nn.Linear(256, 256), nn.Hardtanh(),
+        nn.Linear(256, 1),
+    )
 
     Xn, m = removepatch(Xt[:10])
 

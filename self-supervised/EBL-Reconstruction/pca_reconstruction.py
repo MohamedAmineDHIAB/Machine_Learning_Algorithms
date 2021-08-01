@@ -32,9 +32,9 @@ if __name__ == '__main__':
 
     Xn, m = removepatch(Xt[:10])
 
-    utils.vis10(pca(Xn, Xr, 10)*m+Xn*(1-m))
+    utils.vis10(pca(Xn, Xr, 10)*m+Xn)
     plt.savefig("./figs/pca_10pc.png")
-    utils.vis10(pca(Xn, Xr, 60)*m+Xn*(1-m))
+    utils.vis10(pca(Xn, Xr, 60)*m+Xn)
     plt.savefig("./figs/pca_60pc.png")
-    utils.vis10(pca(Xn, Xr, 360)*m+Xn*(1-m))
+    utils.vis10(pca(Xn, Xr, 360)*m+Xn)
     plt.savefig("./figs/pca_360pc.png")
