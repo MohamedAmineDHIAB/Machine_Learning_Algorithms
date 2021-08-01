@@ -29,7 +29,7 @@ if __name__ == '__main__':
     Xr, Xt = utils.getdata()
     xmask = removepatch(Xt[:10])[0]
     utils.vis10(xmask)
-
+    plt.savefig("./figs/masked_digits.png")
     Xn, m = removepatch(Xt[:10])
 
     utils.vis10(pca(Xn, Xr, 10)*m+Xn)
