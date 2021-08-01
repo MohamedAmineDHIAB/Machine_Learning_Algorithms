@@ -28,6 +28,44 @@ We get the following results for :
 - `d=360`
 ![image](https://user-images.githubusercontent.com/85687148/127785422-d1d9c76b-bd04-4544-b7bb-73e41b74a549.png)
 
+## Energy-Based Learning :
+
+We now consider the energy-based learning framework where we learn an energy function to discriminate between correct and incorrect reconstructions. However to be able to generate images which are very close to the correct reconstructions we need to have a model that generates reconstructed images that are still plausible enough to confuse the energy-based model and for which meaningful gradient signal can be extracted, for that we consider a generator network that takes as input the incomplete images.
+
+These are the architectures of the ***Generative*** model and the ***Energy-Based*** model :
+
+`
+    enet = nn.Sequential(
+        nn.Linear(784, 256), nn.Hardtanh(),
+        nn.Linear(256, 256), nn.Hardtanh(),
+        nn.Linear(256, 1),
+    )
+`
+
+`
+    gnet = nn.Sequential(
+        nn.Linear(784, 256), nn.Hardtanh(),
+        nn.Linear(256, 256), nn.Hardtanh(),
+        nn.Linear(256, 784), nn.Hardtanh()
+    )
+    train(enet, gnet, epochs=50)
+`
+
+![image](https://user-images.githubusercontent.com/85687148/127786427-c9b12b40-bf44-4838-b773-a21913813bf9.png)
+
+
+
+These are the results that we get,
+
+***- Before applying the model :***
+
+![image](https://user-images.githubusercontent.com/85687148/127786343-1abf5abe-3604-47fa-a10b-b20aa826262b.png)
+
+***- After applying the model :***
+
+![image](https://user-images.githubusercontent.com/85687148/127786341-b31c68ef-50f4-4fd8-b30c-e67c7e5d728e.png)
+
+
 
 
 
