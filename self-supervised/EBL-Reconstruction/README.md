@@ -59,11 +59,11 @@ These are the results that we get,
 
 ***- Before applying the model :***
 
-![image](https://user-images.githubusercontent.com/85687148/127786343-1abf5abe-3604-47fa-a10b-b20aa826262b.png)
+![image](https://user-images.githubusercontent.com/85687148/127786834-761cd828-4174-4e13-bf0d-9cf39e83a53d.png)
 
 ***- After applying the model :***
 
-![image](https://user-images.githubusercontent.com/85687148/127786341-b31c68ef-50f4-4fd8-b30c-e67c7e5d728e.png)
+![image](https://user-images.githubusercontent.com/85687148/127786842-b5a910b4-3a0b-42da-8280-3bd79ed3f096.png)
 
 
 
