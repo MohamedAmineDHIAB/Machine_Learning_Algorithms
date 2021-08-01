@@ -41,6 +41,7 @@ These are the architectures of the ***Generative*** model and the ***Energy-Base
         nn.Linear(256, 1),
     )
 `
+
 `
     gnet = nn.Sequential(
         nn.Linear(784, 256), nn.Hardtanh(),
