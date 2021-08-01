@@ -25,7 +25,7 @@ def train(enet, gnet, epochs=100, lrate=0.05, mini_batch=100):
     optimizer = optim.SGD(list(enet.parameters()) +
                           list(gnet.parameters()), lr=lrate)
 
-    for epoch in tq(range(epochs)):
+    for epoch in tq(range(epochs+1)):
 
         for i in range(N//mini_batch):
 
@@ -69,7 +69,7 @@ if __name__ == '__main__':
         nn.Linear(256, 256), nn.Hardtanh(),
         nn.Linear(256, 784), nn.Hardtanh()
     )
-    train(enet, gnet, epochs=50)
+    train(enet, gnet, epochs=50, lrate=0.08, mini_batch=1000)
 
     x = Xt[:10]
     z, m = removepatch(x)
