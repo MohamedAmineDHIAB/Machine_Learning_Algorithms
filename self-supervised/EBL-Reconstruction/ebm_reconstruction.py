@@ -25,19 +25,21 @@ def train(enet, gnet, epochs=100, lrate=0.05, mini_batch=100):
     optimizer = optim.SGD(list(enet.parameters()) +
                           list(gnet.parameters()), lr=lrate)
 
-    for epoch in tq(epochs):
+    for epoch in tq(range(epochs)):
 
         for i in range(N//mini_batch):
 
             optimizer.zero_grad()
 
             # Take a minibatch and train it
-            x = Xr[mb*i:mb*(i+1)].data*1.0
+            x = Xr[mini_batch*i:mini_batch*(i+1)].data*1.0
             z, m = removepatch(x)
 
             # Build the forward pass from the input until the loss function
 
             xgen = gnet(x)
+            xgen = (2*xgen).data-xgen
+            xgen = x*(1-m)+xgen*m
             edata = enet(x)
             egen = enet(xgen)
 
@@ -67,7 +69,11 @@ if __name__ == '__main__':
         nn.Linear(256, 256), nn.Hardtanh(),
         nn.Linear(256, 784), nn.Hardtanh()
     )
+    train(enet, gnet, epochs=50)
 
-    Xn, m = removepatch(Xt[:10])
-
-    plt.show()
+    x = Xt[:10]
+    z, m = removepatch(x)
+    utils.vis10(z)
+    plt.savefig('./figs/befoe_ebm.png')
+    utils.vis10(gnet(z)*m+z*(1-m))
+    plt.savefig('./figs/after_ebm.png')
